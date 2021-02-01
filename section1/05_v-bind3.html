@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+  <title>Document</title>
+  <style>
+    .active{
+      border:1px solid red;
+    }
+    .text-danger{
+      color:red;
+    }
+  </style>
+</head>
+<body>
+  リアルDOM
+  <div style="color:blue; font-size:20px">styleテスト</div>
+  <div class="active text-danger">classテスト</div>
+  <br>
+  <div id="app"><!-- 仮装DOM-->
+    <div style="" class=""></div>
+    <div :style="{fontSize:fontSize}">Styleテスト</div>
+    <div :class="{active:isActive}">classテスト</div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app', // 仮装DOM
+      data(){　// 初期設定
+        return {
+          //font-size:'20px' //ケバブケース
+          fontSize: '20px',//キャメルケース
+
+          isActive: false
+        }
+      }
+    })  
+  </script>
+</body>
+</html>
